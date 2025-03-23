@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collabd - Collaborative Development Platform</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <!-- Collabd Logo SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Collabd
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html" class="active">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="workspace.html">Workspace</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <h1>Simplify Your Development Workflow</h1>
+                <p>Collabd integrates VSCode, GitHub, and Discord into a single platform to streamline your collaborative development experience.</p>
+                <div class="hero-btns">
+                    <a href="signup.html" class="btn">Get Started</a>
+                    <a href="#features" class="btn btn-outline">Learn More</a>
+                </div>
+            </div>
+            <div class="hero-image">
+                <img src="./5ffdeeff92c65844842c5db3_vscode_github_codestream.png" alt="Collabd Platform Preview">
+            </div>
+        </div>
+    </section>
+
+    <section id="features" class="section features">
+        <div class="container">
+            <div class="section-title">
+                <h2>Why Choose Collabd?</h2>
+                <p>An all-in-one platform that combines the best features of VSCode, GitHub, and Discord to enhance your development workflow.</p>
+            </div>
+            <div class="features-grid">
+                <!-- Feature Cards Here -->
+                <!-- Seamless Integration, Real-time Collaboration, Smart Project Management -->
+            </div>
+        </div>
+    </section>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Featured Projects</h2>
+                <p>Discover exciting projects or start your own collaboration.</p>
+            </div>
+            <div class="projects-grid">
+                <!-- Project Cards Here -->
+            </div>
+            <div style="text-align: center; margin-top: 40px;">
+                <a href="projects.html" class="btn">View All Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Collabd</h3>
+                    <p>The all-in-one collaborative development platform that integrates VSCode, GitHub, and Discord.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <!-- Facebook Icon -->
+                        </a>
+                        <a href="#" class="social-icon">
+                            <!-- Twitter Icon -->
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                        <li><a href="workspace.html">Workspace</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p>Email: support@collabd.dev</p>
+                    <p>Phone: +123-456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Collabd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <!-- Add this code right before the closing </body> tag in each HTML file -->
+
+<!-- Include the chatbot CSS -->
+<link rel="stylesheet" href="chatbot.css">
+
+<!-- Include the chatbot JavaScript -->
+<script src="chatbot.js"></script>
+
+<!-- Optional: Add a code editor mock for testing -->
+<script>
+  // This script creates a mock code editor for testing the chatbot's code context monitoring
+  document.addEventListener('DOMContentLoaded', function() {
+    // Only add the mock editor to pages that don't already have a code editor
+    if (!document.querySelector('.code-editor')) {
+      // Create a mock code editor (only visible in development)
+      const mockEditorWrapper = document.createElement('div');
+      mockEditorWrapper.style.position = 'fixed';
+      mockEditorWrapper.style.top = '80px';
+      mockEditorWrapper.style.right = '20px';
+      mockEditorWrapper.style.width = '400px';
+      mockEditorWrapper.style.zIndex = '998';
+      mockEditorWrapper.style.display = 'none'; // Hidden by default
+      
+      const mockEditorHeader = document.createElement('div');
+      mockEditorHeader.style.background = '#333';
+      mockEditorHeader.style.color = 'white';
+      mockEditorHeader.style.padding = '8px 10px';
+      mockEditorHeader.style.fontFamily = 'monospace';
+      mockEditorHeader.style.borderTopLeftRadius = '5px';
+      mockEditorHeader.style.borderTopRightRadius = '5px';
+      mockEditorHeader.textContent = 'Mock Code Editor (for development only)';
+      
+      const mockEditor = document.createElement('div');
+      mockEditor.className = 'code-editor';
+      mockEditor.contentEditable = true;
+      mockEditor.style.background = '#282c34';
+      mockEditor.style.color = '#abb2bf';
+      mockEditor.style.fontFamily = 'monospace';
+      mockEditor.style.padding = '15px';
+      mockEditor.style.height = '300px';
+      mockEditor.style.overflow = 'auto';
+      mockEditor.style.whiteSpace = 'pre';
+      mockEditor.style.borderBottomLeftRadius = '5px';
+      mockEditor.style.borderBottomRightRadius = '5px';
+      mockEditor.textContent = `function calculateTotal(items) {
+  let total = 0;
+  for (let i = 0; i < items.length; i++) {
+    total += items[i].price * items[i].quantity;
+  }
+  return total;
+}
+
+// Example usage
+const cart = [
+  { id: 1, name: "Product 1", price: 10, quantity: 2 },
+  { id: 2, name: "Product 2", price: 15, quantity: 1 },
+  { id: 3, name: "Product 3", price: 20, quantity: 3 }
+];
+
+const orderTotal = calculateTotal(cart);
+console.log("Order total:", orderTotal);`;
+      
+      mockEditorWrapper.appendChild(mockEditorHeader);
+      mockEditorWrapper.appendChild(mockEditor);
+      document.body.appendChild(mockEditorWrapper);
+      
+      // Add a toggle button for development
+      const toggleButton = document.createElement('button');
+      toggleButton.textContent = 'Toggle Mock Editor';
+      toggleButton.style.position = 'fixed';
+      toggleButton.style.top = '10px';
+      toggleButton.style.right = '20px';
+      toggleButton.style.zIndex = '999';
+      toggleButton.style.background = '#4CAF50';
+      toggleButton.style.color = 'white';
+      toggleButton.style.border = 'none';
+      toggleButton.style.padding = '8px 12px';
+      toggleButton.style.borderRadius = '4px';
+      toggleButton.style.cursor = 'pointer';
+      toggleButton.style.fontFamily = 'sans-serif';
+      
+      toggleButton.addEventListener('click', function() {
+        mockEditorWrapper.style.display = mockEditorWrapper.style.display === 'none' ? 'block' : 'none';
+      });
+      
+     
+    }
+  });
+</script>
+<link rel="stylesheet" href="chatbot.css">
+<script src="chatbot.js"></script>
+<script src="username-sync.js"></script>
+</body>
+</html>

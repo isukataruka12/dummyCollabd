@@ -1,0 +1,634 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calendar - Collabd</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Collabd
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="calendar.html" class="active">Calendar</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html">Sign Up</a></li>
+                    <li><a href="workspace.html">Workspace</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="section">
+        <div class="container">
+            <div class="section-title">
+                <h2>Your Schedule</h2>
+                <p>Manage your tasks and project deadlines</p>
+            </div>
+            
+            <div class="calendar-container">
+                <div class="calendar-sidebar">
+                    <div class="sidebar-section">
+                        <h3>Today's Tasks</h3>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task1">
+                            <label for="task1">Complete React component documentation</label>
+                        </div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task2">
+                            <label for="task2">Review pull request #42</label>
+                        </div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task3">
+                            <label for="task3">Team meeting at 2 PM</label>
+                        </div>
+                        <div class="task-checkbox">
+                            <input type="checkbox" id="task4">
+                            <label for="task4">Fix API authentication issue</label>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Projects</h3>
+                        <div class="project-filter">
+                            <input type="checkbox" id="proj1" checked>
+                            <label for="proj1">
+                                <span class="color-dot" style="background-color: #6c5ce7;"></span>
+                                React Component Library
+                            </label>
+                        </div>
+                        <div class="project-filter">
+                            <input type="checkbox" id="proj2" checked>
+                            <label for="proj2">
+                                <span class="color-dot" style="background-color: #00b894;"></span>
+                                Home Automation API
+                            </label>
+                        </div>
+                        <div class="project-filter">
+                            <input type="checkbox" id="proj3" checked>
+                            <label for="proj3">
+                                <span class="color-dot" style="background-color: #fdcb6e;"></span>
+                                ML Image Recognition
+                            </label>
+                        </div>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Add New Event</h3>
+                        <div class="form-group">
+                            <label for="event-title">Event Title</label>
+                            <input type="text" id="event-title" class="form-control" placeholder="Enter event title">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-date">Date</label>
+                            <input type="date" id="event-date" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-time">Time</label>
+                            <input type="time" id="event-time" class="form-control">
+                        </div>
+                        <div class="form-group">
+                            <label for="event-project">Project</label>
+                            <select id="event-project" class="form-control">
+                                <option value="#6c5ce7">React Component Library</option>
+                                <option value="#00b894">Home Automation API</option>
+                                <option value="#fdcb6e">ML Image Recognition</option>
+                                <option value="#e17055">Other</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label for="event-description">Description</label>
+                            <textarea id="event-description" class="form-control" rows="3" placeholder="Event details..."></textarea>
+                        </div>
+                        <button onclick="addNewEvent(); return false;" class="btn" style="width: 100%;">Add Event</button>
+                    </div>
+                    
+                    <div class="sidebar-section">
+                        <h3>Actions</h3>
+                        <button onclick="clearAllEvents(); return false;" class="btn btn-outline" style="width: 100%; display: flex; align-items: center; justify-content: center;">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="margin-right: 5px;">
+                                <polyline points="3 6 5 6 21 6"></polyline>
+                                <path d="M19 6v14a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V6m3 0V4a2 2 0 0 1 2-2h4a2 2 0 0 1 2 2v2"></path>
+                            </svg>
+                            Clear All Events
+                        </button>
+                    </div>
+                </div>
+                
+                <div class="calendar-main">
+                    <div class="calendar-header">
+                        <div class="calendar-nav">
+                            <button onclick="prevMonth(); return false;" style="background: none; border: none; cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="15 18 9 12 15 6"></polyline>
+                                </svg>
+                            </button>
+                            <h3 id="current-month">March 2025</h3>
+                            <button onclick="nextMonth(); return false;" style="background: none; border: none; cursor: pointer;">
+                                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                    <polyline points="9 18 15 12 9 6"></polyline>
+                                </svg>
+                            </button>
+                        </div>
+                        
+                        <div class="view-options">
+                            <button onclick="changeView('day'); return false;" class="view-btn">Day</button>
+                            <button onclick="changeView('week'); return false;" class="view-btn">Week</button>
+                            <button onclick="changeView('month'); return false;" class="view-btn active">Month</button>
+                            <button onclick="changeView('year'); return false;" class="view-btn">Year</button>
+                        </div>
+                    </div>
+                    
+                    <div id="calendar-view" class="calendar-grid month-view">
+                        <div class="weekday-header">Sun</div>
+                        <div class="weekday-header">Mon</div>
+                        <div class="weekday-header">Tue</div>
+                        <div class="weekday-header">Wed</div>
+                        <div class="weekday-header">Thu</div>
+                        <div class="weekday-header">Fri</div>
+                        <div class="weekday-header">Sat</div>
+                        
+                        <!-- Previous month days -->
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Sun">23</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Mon">24</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Tue">25</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Wed">26</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Thu">27</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Fri">28</div>
+                        </div>
+                        
+                        <!-- Current month days -->
+                        <div class="calendar-day" ondblclick="quickAddEvent(1); return false;">
+                            <div class="day-number" data-day="Sat">1</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(2); return false;">
+                            <div class="day-number" data-day="Sun">2</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(3); return false;">
+                            <div class="day-number" data-day="Mon">3</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(4); return false;">
+                            <div class="day-number" data-day="Tue">4</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(5); return false;">
+                            <div class="day-number" data-day="Wed">5</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(6); return false;">
+                            <div class="day-number" data-day="Thu">6</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(7); return false;">
+                            <div class="day-number" data-day="Fri">7</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;" onclick="viewEventDetails('Team Meeting', 'March 7, 2025', '2:00 PM', 'React Component Library', 'Weekly team sync meeting'); return false;">Team Meeting</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(8); return false;">
+                            <div class="day-number" data-day="Sat">8</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(9); return false;">
+                            <div class="day-number" data-day="Sun">9</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;" onclick="viewEventDetails('Project Deadline', 'March 9, 2025', '11:59 PM', 'ML Image Recognition', 'Final submission for phase 1'); return false;">Project Deadline</div>
+                            <div class="calendar-event" style="background-color: #00b894;" onclick="viewEventDetails('API Testing', 'March 9, 2025', '3:00 PM', 'Home Automation API', 'Testing new endpoints with the team'); return false;">API Testing</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(10); return false;">
+                            <div class="day-number" data-day="Mon">10</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(11); return false;">
+                            <div class="day-number" data-day="Tue">11</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;" onclick="viewEventDetails('Code Review', 'March 11, 2025', '1:00 PM', 'React Component Library', 'Review PRs for component library'); return false;">Code Review</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(12); return false;">
+                            <div class="day-number" data-day="Wed">12</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(13); return false;">
+                            <div class="day-number" data-day="Thu">13</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(14); return false;">
+                            <div class="day-number" data-day="Fri">14</div>
+                            <div class="calendar-event" style="background-color: #00b894;" onclick="viewEventDetails('Feature Release', 'March 14, 2025', '10:00 AM', 'Home Automation API', 'Release v2.0 of the API'); return false;">Feature Release</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(15); return false;">
+                            <div class="day-number" data-day="Sat">15</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(16); return false;">
+                            <div class="day-number" data-day="Sun">16</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(17); return false;">
+                            <div class="day-number" data-day="Mon">17</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;" onclick="viewEventDetails('ML Training', 'March 17, 2025', '9:00 AM', 'ML Image Recognition', 'Start model training on new dataset'); return false;">ML Training</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(18); return false;">
+                            <div class="day-number" data-day="Tue">18</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(19); return false;">
+                            <div class="day-number" data-day="Wed">19</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(20); return false;">
+                            <div class="day-number" data-day="Thu">20</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;" onclick="viewEventDetails('Planning Meeting', 'March 20, 2025', '11:00 AM', 'React Component Library', 'Plan next sprint items'); return false;">Planning Meeting</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(21); return false;">
+                            <div class="day-number" data-day="Fri">21</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(22); return false;">
+                            <div class="day-number" data-day="Sat">22</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(23); return false;">
+                            <div class="day-number" data-day="Sun">23</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(24); return false;">
+                            <div class="day-number" data-day="Mon">24</div>
+                            <div class="calendar-event" style="background-color: #00b894;" onclick="viewEventDetails('API Documentation', 'March 24, 2025', '2:00 PM', 'Home Automation API', 'Update API docs for new endpoints'); return false;">API Documentation</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(25); return false;">
+                            <div class="day-number" data-day="Tue">25</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(26); return false;">
+                            <div class="day-number" data-day="Wed">26</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(27); return false;">
+                            <div class="day-number" data-day="Thu">27</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;" onclick="viewEventDetails('Model Testing', 'March 27, 2025', '3:00 PM', 'ML Image Recognition', 'Test model performance on validation data'); return false;">Model Testing</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(28); return false;">
+                            <div class="day-number" data-day="Fri">28</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(29); return false;">
+                            <div class="day-number" data-day="Sat">29</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(30); return false;">
+                            <div class="day-number" data-day="Sun">30</div>
+                        </div>
+                        <div class="calendar-day" ondblclick="quickAddEvent(31); return false;">
+                            <div class="day-number" data-day="Mon">31</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;" onclick="viewEventDetails('Sprint Review', 'March 31, 2025', '10:00 AM', 'React Component Library', 'End of sprint review meeting'); return false;">Sprint Review</div>
+                        </div>
+                        
+                        <!-- Next month days -->
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Tue">1</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Wed">2</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Thu">3</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Fri">4</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Sat">5</div>
+                        </div>
+                    </div>
+                    
+                    <!-- Year view (initially hidden) -->
+                    <div id="year-view" class="year-view" style="display: none;">
+                        <div class="year-grid">
+                            <div class="month-card" onclick="showMonth(0); return false;">
+                                <h4>January</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(1); return false;">
+                                <h4>February</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(2); return false;">
+                                <h4>March</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display with current indicator -->
+                                    <div class="mini-month-week current-month"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(3); return false;">
+                                <h4>April</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(4); return false;">
+                                <h4>May</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(5); return false;">
+                                <h4>June</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(6); return false;">
+                                <h4>July</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(7); return false;">
+                                <h4>August</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(8); return false;">
+                                <h4>September</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(9); return false;">
+                                <h4>October</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(10); return false;">
+                                <h4>November</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                            <div class="month-card" onclick="showMonth(11); return false;">
+                                <h4>December</h4>
+                                <div class="mini-month-grid">
+                                    <!-- Simplified month display -->
+                                    <div class="mini-month-week"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- Event details modal (hidden by default) -->
+                    <div id="event-modal" class="event-modal" style="display: none;">
+                        <div class="event-modal-content">
+                            <span class="close-modal" onclick="closeEventModal()">&times;</span>
+                            <h3 id="modal-event-title">Event Title</h3>
+                            <div class="event-details">
+                                <p><strong>Date:</strong> <span id="modal-event-date">March 7, 2025</span></p>
+                                <p><strong>Time:</strong> <span id="modal-event-time">2:00 PM</span></p>
+                                <p><strong>Project:</strong> <span id="modal-event-project">React Component Library</span></p>
+                                <p><strong>Description:</strong></p>
+                                <p id="modal-event-description">Event description goes here...</p>
+                            </div>
+                            <div class="modal-actions">
+                                <button onclick="editEvent(); return false;" class="btn">Edit</button>
+                                <button onclick="deleteEvent(); return false;" class="btn btn-outline">Delete</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section></div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Mon">24</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Tue">25</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Wed">26</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Thu">27</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Fri">28</div>
+                        </div>
+                        
+                        <!-- Current month days -->
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sat">1</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sun">2</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Mon">3</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Tue">4</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Wed">5</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Thu">6</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Fri">7</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;" onclick="alert('Team Meeting: 2PM on March 7'); return false;">Team Meeting</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sat">8</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sun">9</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;" onclick="alert('Project Deadline: ML Image Recognition due on March 9'); return false;">Project Deadline</div>
+                            <div class="calendar-event" style="background-color: #00b894;" onclick="alert('API Testing session at 3PM on March 9'); return false;">API Testing</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Mon">10</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Tue">11</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;">Code Review</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Wed">12</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Thu">13</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Fri">14</div>
+                            <div class="calendar-event" style="background-color: #00b894;">Feature Release</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sat">15</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sun">16</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Mon">17</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;">ML Training</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Tue">18</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Wed">19</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Thu">20</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;">Planning Meeting</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Fri">21</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sat">22</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sun">23</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Mon">24</div>
+                            <div class="calendar-event" style="background-color: #00b894;">API Documentation</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Tue">25</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Wed">26</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Thu">27</div>
+                            <div class="calendar-event" style="background-color: #fdcb6e;">Model Testing</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Fri">28</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sat">29</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Sun">30</div>
+                        </div>
+                        <div class="calendar-day">
+                            <div class="day-number" data-day="Mon">31</div>
+                            <div class="calendar-event" style="background-color: #6c5ce7;">Sprint Review</div>
+                        </div>
+                        
+                        <!-- Next month days -->
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Tue">1</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Wed">2</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Thu">3</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Fri">4</div>
+                        </div>
+                        <div class="calendar-day other-month">
+                            <div class="day-number" data-day="Sat">5</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Collabd</h3>
+                    <p>The all-in-one collaborative development platform that integrates VSCode, GitHub, and Discord.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Integrated Coding</a></li>
+                        <li><a href="#">Version Control</a></li>
+                        <li><a href="#">Team Communication</a></li>
+                        <li><a href="#">Project Management</a></li>
+                        <li><a href="#">Calendar Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@collabd.com">info@collabd.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>123 Tech Street, San Francisco, CA 94107</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Collabd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="calendar.js"></script>
+</body>
+</html>

@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Collabd - Workspace</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="workspace.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body class="workspace-page">
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <!-- Collabd Logo SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Collabd
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="workspace.html" class="active">Workspace</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                    <li><a href="#" class="user-profile">
+                        <img src="https://i.pravatar.cc/150?img=5" alt="User Profile" class="profile-pic">
+                        <span>JohnDoe</span>
+                    </a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="workspace-container">
+        <div class="workspace-sidebar">
+            <div class="workspace-nav">
+                <div class="workspace-nav-item active" data-view="all">
+                    <i class="fas fa-th-large"></i>
+                    <span>All Integrations</span>
+                </div>
+                <div class="workspace-nav-item" data-view="vscode">
+                    <i class="fas fa-code"></i>
+                    <span>VS Code</span>
+                </div>
+                <div class="workspace-nav-item" data-view="github">
+                    <i class="fab fa-github"></i>
+                    <span>GitHub</span>
+                </div>
+                <div class="workspace-nav-item" data-view="discord">
+                    <i class="fab fa-discord"></i>
+                    <span>Discord</span>
+                </div>
+            </div>
+            <div class="workspace-projects">
+                <h3>Recent Projects</h3>
+                <ul>
+                  <li><a href="#" class="active" data-repo="collabd-project">collabd-project</a></li>
+                  <li><a href="#" data-repo="react-dashboard">react-dashboard</a></li>
+                  <li><a href="#" data-repo="node-api-starter">node-api-starter</a></li>
+                  <li><a href="#" data-repo="personal-website">personal-website</a></li>
+                </ul>
+                <div class="project-actions">
+                    <button class="new-project-btn">
+                        <i class="fas fa-plus"></i> New Project
+                    </button>
+                </div>
+            </div>
+            <div class="workspace-team">
+                <h3>Team Members</h3>
+                <ul class="team-list">
+                    <li class="team-member">
+                        <img src="https://i.pravatar.cc/150?img=1" alt="Team Member" class="member-avatar">
+                        <span class="member-name">Alice</span>
+                        <span class="status-dot online"></span>
+                    </li>
+                    <li class="team-member">
+                        <img src="https://i.pravatar.cc/150?img=2" alt="Team Member" class="member-avatar">
+                        <span class="member-name">Bob</span>
+                        <span class="status-dot idle"></span>
+                    </li>
+                    <li class="team-member">
+                        <img src="https://i.pravatar.cc/150?img=3" alt="Team Member" class="member-avatar">
+                        <span class="member-name">Charlie</span>
+                        <span class="status-dot dnd"></span>
+                    </li>
+                    <li class="team-member">
+                        <img src="https://i.pravatar.cc/150?img=4" alt="Team Member" class="member-avatar">
+                        <span class="member-name">Dana</span>
+                        <span class="status-dot offline"></span>
+                    </li>
+                </ul>
+                <div class="team-actions">
+                    <button class="invite-btn">
+                        <i class="fas fa-user-plus"></i> Invite
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="workspace-main">
+            <div class="workspace-header">
+                <h1>Workspace: collabd-project</h1>
+                <div class="workspace-controls">
+                    <button class="refresh-btn">
+                        <i class="fas fa-sync-alt"></i> Refresh
+                    </button>
+                    <button class="settings-btn">
+                        <i class="fas fa-cog"></i> Settings
+                    </button>
+                </div>
+            </div>
+            
+            <!-- Views Container -->
+            <div class="workspace-views">
+                <!-- All Integrations View -->
+                <div class="workspace-view active" id="all-view">
+                    <div class="integration-grid">
+                        <!-- VS Code Integration -->
+                        <div id="vscode-container" class="integration-panel"></div>
+                        
+                        <!-- GitHub Integration -->
+                        <div id="github-container" class="integration-panel"></div>
+                        
+                        <!-- Discord Integration (Full Width) -->
+                        <div id="discord-container" class="integration-panel full-width"></div>
+                    </div>
+                </div>
+                
+                <!-- VS Code View -->
+                <div class="workspace-view" id="vscode-view">
+                    <div id="vscode-container-full" class="integration-panel full-screen"></div>
+                </div>
+                
+                <!-- GitHub View -->
+                <div class="workspace-view" id="github-view">
+                    <div id="github-container-full" class="integration-panel full-screen"></div>
+                </div>
+                
+                <!-- Discord View -->
+                <div class="workspace-view" id="discord-view">
+                    <div id="discord-container-full" class="integration-panel full-screen"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="workspace-footer">
+        <div class="container">
+            <div class="footer-content">
+                <p>&copy; 2025 Collabd. All rights reserved.</p>
+                <div class="footer-links">
+                    <a href="#">Terms</a>
+                    <a href="#">Privacy</a>
+                    <a href="#">Support</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Integration Scripts -->
+    <script src="js/vscode-integration.js"></script>
+    <script src="js/github-integration.js"></script>
+    <script src="js/discord-integration.js"></script>
+    <script src="js/workspace.js"></script>
+    <script src="username-sync.js"></script>
+    <!-- Add these scripts before your existing scripts -->
+<script src="js/username-sync.js"></script>
+<script src="js/github-integration.js"></script>
+<script src="js/vscode-discord-integration.js"></script>
+<script src="github-redirect.js"></script>
+</body>
+</html>

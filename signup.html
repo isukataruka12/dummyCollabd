@@ -1,0 +1,852 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Collabd</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Collabd
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="active">Sign Up</a></li>
+                    <li><a href="workspace.html">Workspace</a></li>
+                    <li><a href="settings.html">Settings</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <div class="auth-container">
+        <div class="auth-card">
+            <div class="auth-header">
+                <h1>Create Your Account</h1>
+                <p>Join Collabd to streamline your development workflow</p>
+            </div>
+            <form action="index.html" method="GET" onsubmit="handleSignup(event); return false;">
+                <div class="form-group">
+                    <label for="fullname">Full Name</label>
+                    <input type="text" id="fullname" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                <div class="form-group">
+                    <label for="email">Email Address</label>
+                    <input type="email" id="email" class="form-control" placeholder="Enter your email address" required>
+                </div>
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                </div>
+                <div class="form-group">
+                    <label for="confirm-password">Confirm Password</label>
+                    <input type="password" id="confirm-password" class="form-control" placeholder="Confirm your password" required>
+                </div>
+                <div class="form-group">
+                    <input type="checkbox" id="terms" name="terms" required>
+                    <label for="terms" style="display: inline; margin-left: 5px;">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                </div>
+                <button type="submit" class="btn" style="width: 100%;">Create Account</button>
+            </form>
+            <div class="auth-footer">
+                <p>Already have an account? <a href="login.html">Login</a></p>
+            </div>
+        </div>
+    </div>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Collabd</h3>
+                    <p>The all-in-one collaborative development platform that integrates VSCode, GitHub, and Discord.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"></path>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="2" y="2" width="20" height="20" rx="5" ry="5"></rect>
+                                <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                                <line x1="17.5" y1="6.5" x2="17.51" y2="6.5"></line>
+                            </svg>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+                                <rect x="2" y="9" width="4" height="12"></rect>
+                                <circle cx="4" cy="4" r="2"></circle>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h3>Features</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Integrated Coding</a></li>
+                        <li><a href="#">Version Control</a></li>
+                        <li><a href="#">Team Communication</a></li>
+                        <li><a href="#">Project Management</a></li>
+                        <li><a href="#">Calendar Integration</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Resources</h3>
+                    <ul class="footer-links">
+                        <li><a href="#">Documentation</a></li>
+                        <li><a href="#">Tutorials</a></li>
+                        <li><a href="#">Blog</a></li>
+                        <li><a href="#">Support</a></li>
+                        <li><a href="#">Community</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h3>Contact Us</h3>
+                    <ul class="footer-links">
+                        <li><a href="mailto:info@collabd.com">info@collabd.com</a></li>
+                        <li><a href="tel:+1234567890">+1 (234) 567-890</a></li>
+                        <li>123 Tech Street, San Francisco, CA 94107</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Collabd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+    <script src="main.js"></script>
+    <script src="signup.js"></script>
+    <script src="username-sync.js"></script>
+    <!-- Add these scripts before your existing scripts -->
+<script src="js/username-sync.js"></script>
+<script src="js/github-integration.js"></script>
+<script src="js/vscode-discord-integration.js"></script>
+</body>
+</html>
+
+
+
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign Up - Collabd</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <style>
+        /* Signup specific styles */
+        .auth-section {
+            padding: 60px 0;
+            background-color: #f5f7fa;
+            min-height: calc(100vh - 200px);
+        }
+        
+        .auth-container {
+            display: flex;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            overflow: hidden;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        .auth-form-container {
+            padding: 40px;
+            flex: 1;
+        }
+        
+        .auth-form-container h1 {
+            margin-top: 0;
+            color: #333;
+            font-size: 28px;
+            margin-bottom: 10px;
+        }
+        
+        .auth-form-container p {
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 30px;
+        }
+        
+        .auth-image {
+            flex: 1;
+            background-color: #7289da;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            position: relative;
+            padding: 40px;
+        }
+        
+        .auth-image img {
+            max-width: 80%;
+            margin-bottom: 20px;
+        }
+        
+        .overlay-text {
+            text-align: center;
+        }
+        
+        .overlay-text h2 {
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+        
+        .overlay-text p {
+            font-size: 16px;
+            line-height: 1.5;
+        }
+        
+        .form-group {
+            margin-bottom: 20px;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 500;
+            color: #333;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="password"] {
+            width: 100%;
+            padding: 10px 12px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            font-size: 14px;
+            transition: border-color 0.2s;
+        }
+        
+        .form-group input[type="text"]:focus,
+        .form-group input[type="email"]:focus,
+        .form-group input[type="password"]:focus {
+            border-color: #7289da;
+            outline: none;
+        }
+        
+        .btn {
+            padding: 12px 20px;
+            border-radius: 4px;
+            font-size: 16px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: all 0.2s;
+            border: 1px solid transparent;
+        }
+        
+        .btn-full {
+            width: 100%;
+        }
+        
+        .btn-primary {
+            background-color: #7289da;
+            color: white;
+            border-color: #7289da;
+        }
+        
+        .btn-primary:hover {
+            background-color: #677bc4;
+            border-color: #677bc4;
+        }
+        
+        .auth-footer {
+            margin-top: 20px;
+            text-align: center;
+        }
+        
+        .auth-footer a {
+            color: #7289da;
+            text-decoration: none;
+        }
+        
+        .auth-footer a:hover {
+            text-decoration: underline;
+        }
+        
+        .checkbox-container {
+            display: flex;
+            align-items: center;
+        }
+        
+        .checkbox-container input[type="checkbox"] {
+            margin-right: 10px;
+        }
+        
+        /* Integration options styling */
+        .integrations-section {
+            margin-top: 30px;
+            margin-bottom: 20px;
+            border-top: 1px solid #e5e7eb;
+            padding-top: 20px;
+        }
+        
+        .integrations-section h3 {
+            margin-top: 0;
+            margin-bottom: 5px;
+            color: #333;
+            font-size: 18px;
+        }
+        
+        .integrations-section p {
+            color: #666;
+            margin-top: 0;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+        
+        .integration-options {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+        
+        .integration-option {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background-color: #f9fafc;
+            padding: 12px 15px;
+            border-radius: 6px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .integration-header {
+            display: flex;
+            align-items: center;
+        }
+        
+        .integration-header i {
+            font-size: 18px;
+            margin-right: 10px;
+            width: 20px;
+            text-align: center;
+        }
+        
+        .integration-header .fa-code {
+            color: #007acc;
+        }
+        
+        .integration-header .fa-github {
+            color: #333;
+        }
+        
+        .integration-header .fa-discord {
+            color: #7289da;
+        }
+        
+        .integration-input {
+            display: flex;
+            align-items: center;
+        }
+        
+        .integration-input input[type="text"] {
+            padding: 8px 10px;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            width: 180px;
+        }
+        
+        /* Switch styling for VS Code toggle */
+        .switch {
+            position: relative;
+            display: inline-block;
+            width: 48px;
+            height: 24px;
+        }
+        
+        .switch input {
+            opacity: 0;
+            width: 0;
+            height: 0;
+        }
+        
+        .switch label {
+            position: absolute;
+            cursor: pointer;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-color: #ccc;
+            transition: .4s;
+            border-radius: 24px;
+        }
+        
+        .switch label:before {
+            position: absolute;
+            content: "";
+            height: 18px;
+            width: 18px;
+            left: 3px;
+            bottom: 3px;
+            background-color: white;
+            transition: .4s;
+            border-radius: 50%;
+        }
+        
+        .switch input:checked + label {
+            background-color: #7289da;
+        }
+        
+        .switch input:checked + label:before {
+            transform: translateX(24px);
+        }
+        
+        /* Password strength indicator */
+        .password-strength {
+            margin-top: 5px;
+            font-size: 12px;
+            padding: 3px 8px;
+            border-radius: 3px;
+            display: inline-block;
+        }
+        
+        .password-strength.weak {
+            background-color: #ffebee;
+            color: #f44336;
+        }
+        
+        .password-strength.medium {
+            background-color: #fff8e1;
+            color: #ff9800;
+        }
+        
+        .password-strength.strong {
+            background-color: #e8f5e9;
+            color: #4caf50;
+        }
+        
+        .password-strength.very-strong {
+            background-color: #e3f2fd;
+            color: #2196f3;
+        }
+        
+        /* Password confirmation visual feedback */
+        .form-group input.match {
+            border-color: #4caf50;
+            background-color: #f9fff9;
+        }
+        
+        .form-group input.mismatch {
+            border-color: #f44336;
+            background-color: #fff9f9;
+        }
+        
+        /* Responsive adjustments */
+        @media (max-width: 992px) {
+            .auth-container {
+                flex-direction: column;
+            }
+            
+            .auth-image {
+                padding: 30px;
+                order: -1;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .auth-form-container {
+                padding: 30px 20px;
+            }
+            
+            .integration-option {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 10px;
+            }
+            
+            .integration-input {
+                width: 100%;
+            }
+            
+            .integration-input input[type="text"] {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <nav class="navbar">
+                <a href="index.html" class="logo">
+                    <!-- Collabd Logo SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                        <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                        <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
+                        <polyline points="7.5 19.79 7.5 14.6 3 12"/>
+                        <polyline points="21 12 16.5 14.6 16.5 19.79"/>
+                        <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                        <line x1="12" y1="22.08" x2="12" y2="12"/>
+                    </svg>
+                    Collabd
+                </a>
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="calendar.html">Calendar</a></li>
+                    <li><a href="login.html">Login</a></li>
+                    <li><a href="signup.html" class="active">Sign Up</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="auth-section">
+        <div class="container">
+            <div class="auth-container">
+                <div class="auth-form-container">
+                    <h1>Create Your Account</h1>
+                    <p>Join Collabd and streamline your development workflow</p>
+                    
+                    <form class="signup-form">
+                        <div class="form-group">
+                            <label for="fullname">Full Name</label>
+                            <input type="text" id="fullname" name="fullname" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="username">Username</label>
+                            <input type="text" id="username" name="username" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email</label>
+                            <input type="email" id="email" name="email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="password">Password</label>
+                            <input type="password" id="password" name="password" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="confirm-password">Confirm Password</label>
+                            <input type="password" id="confirm-password" name="confirm-password" required>
+                        </div>
+                        
+                        <div class="integrations-section">
+                            <h3>Connect Your Accounts</h3>
+                            <p>You can also connect these services now or later from settings</p>
+                            
+                            <div class="integration-options">
+                                <div class="integration-option">
+                                    <div class="integration-header">
+                                        <i class="fas fa-code"></i>
+                                        <span>VS Code</span>
+                                    </div>
+                                    <div class="integration-input">
+                                        <div class="switch">
+                                            <input type="checkbox" id="vscode-connect">
+                                            <label for="vscode-connect"></label>
+                                        </div>
+                                    </div>
+                                </div>
+                                
+                                <div class="integration-option">
+                                    <div class="integration-header">
+                                        <i class="fab fa-github"></i>
+                                        <span>GitHub</span>
+                                    </div>
+                                    <div class="integration-input">
+                                        <input type="text" id="github-username" name="github-username" placeholder="GitHub Username">
+                                    </div>
+                                </div>
+                                
+                                <div class="integration-option">
+                                    <div class="integration-header">
+                                        <i class="fab fa-discord"></i>
+                                        <span>Discord</span>
+                                    </div>
+                                    <div class="integration-input">
+                                        <input type="text" id="discord-username" name="discord-username" placeholder="Discord Username">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <div class="checkbox-container">
+                                <input type="checkbox" id="terms" name="terms" required>
+                                <label for="terms">I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a></label>
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-full">Create Account</button>
+                    </form>
+                    
+                    <div class="auth-footer">
+                        <p>Already have an account? <a href="login.html">Log In</a></p>
+                    </div>
+                </div>
+                
+                <div class="auth-image">
+                    <img src="signup-illustration.svg" alt="Sign Up Illustration" onerror="this.src='https://via.placeholder.com/400x300?text=Collabd'">
+                    <div class="overlay-text">
+                        <h2>One Platform, All Your Tools</h2>
+                        <p>Collabd brings VS Code, GitHub, and Discord together to supercharge your development experience.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-column">
+                    <h3>Collabd</h3>
+                    <p>The all-in-one collaborative development platform that integrates VSCode, GitHub, and Discord.</p>
+                    <div class="social-links">
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-facebook-f"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-twitter"></i>
+                        </a>
+                        <a href="#" class="social-icon">
+                            <i class="fab fa-github"></i>
+                        </a>
+                    </div>
+                </div>
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="projects.html">Projects</a></li>
+                        <li><a href="calendar.html">Calendar</a></li>
+                        <li><a href="login.html">Login</a></li>
+                        <li><a href="signup.html">Sign Up</a></li>
+                    </ul>
+                </div>
+                <div class="footer-column">
+                    <h4>Contact</h4>
+                    <p>Email: support@collabd.dev</p>
+                    <p>Phone: +123-456-7890</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Collabd. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/collabd-integration.js"></script>
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const signupForm = document.querySelector('.signup-form');
+            
+            if (signupForm) {
+                signupForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    
+                    // Get form data
+                    const fullName = document.getElementById('fullname')?.value;
+                    const username = document.getElementById('username')?.value;
+                    const email = document.getElementById('email')?.value;
+                    const password = document.getElementById('password')?.value;
+                    const confirmPassword = document.getElementById('confirm-password')?.value;
+                    
+                    // Validation
+                    if (!fullName || !username || !email || !password) {
+                        alert('Please fill in all required fields.');
+                        return;
+                    }
+                    
+                    if (password !== confirmPassword) {
+                        alert('Passwords do not match.');
+                        return;
+                    }
+                    
+                    if (!document.getElementById('terms').checked) {
+                        alert('You must agree to the Terms of Service and Privacy Policy.');
+                        return;
+                    }
+                    
+                    // Get integration data
+                    const connectVSCode = document.getElementById('vscode-connect')?.checked || false;
+                    const githubUsername = document.getElementById('github-username')?.value || '';
+                    const discordUsername = document.getElementById('discord-username')?.value || '';
+                    
+                    // Create user data
+                    const userData = {
+                        fullName: fullName,
+                        username: username,
+                        email: email,
+                        bio: '',
+                        location: '',
+                        github: githubUsername,
+                        discord: discordUsername,
+                        profileVisible: true,
+                        showEmail: true,
+                        showOnlineStatus: false,
+                        signupDate: new Date().toISOString()
+                    };
+                    
+                    // Save user data using CollabdUser
+                    if (typeof CollabdUser !== 'undefined') {
+                        CollabdUser.saveUserData(userData);
+                        
+                        // Set up service connections based on provided data
+                        if (connectVSCode && typeof ServiceIntegration !== 'undefined') {
+                            ServiceIntegration.connectService('vscode', username);
+                        }
+                        
+                        if (githubUsername && typeof ServiceIntegration !== 'undefined') {
+                            ServiceIntegration.connectService('github', githubUsername);
+                        }
+                        
+                        if (discordUsername && typeof ServiceIntegration !== 'undefined') {
+                            ServiceIntegration.connectService('discord', discordUsername);
+                        }
+                    } else {
+                        // Fallback if integration JS is not loaded
+                        localStorage.setItem('collabdUserData', JSON.stringify(userData));
+                        
+                        // Set basic connection statuses
+                        if (connectVSCode) {
+                            localStorage.setItem('vsCodeConnected', 'true');
+                        }
+                        
+                        if (githubUsername) {
+                            localStorage.setItem('githubConnected', 'true');
+                            localStorage.setItem('githubUsername', githubUsername);
+                        }
+                        
+                        if (discordUsername) {
+                            localStorage.setItem('discordConnected', 'true');
+                            localStorage.setItem('discordUsername', discordUsername);
+                        }
+                    }
+                    
+                    // Show success message and redirect
+                    alert('Account created successfully! Redirecting to workspace...');
+                    setTimeout(() => {
+                        window.location.href = 'workspace.html';
+                    }, 1000);
+                });
+            }
+            
+            // Password strength and confirmation check
+            const passwordInput = document.getElementById('password');
+            const confirmPasswordInput = document.getElementById('confirm-password');
+            
+            if (passwordInput && confirmPasswordInput) {
+                // Password strength indicator
+                passwordInput.addEventListener('input', function() {
+                    const password = this.value;
+                    let strength = 0;
+                    
+                    // Calculate password strength
+                    if (password.length >= 8) strength += 1;
+                    if (password.match(/[a-z]/) && password.match(/[A-Z]/)) strength += 1;
+                    if (password.match(/\d/)) strength += 1;
+                    if (password.match(/[^a-zA-Z\d]/)) strength += 1;
+                    
+                    // Update password strength indicator
+                    const strengthIndicator = document.querySelector('.password-strength') || 
+                        document.createElement('div');
+                    
+                    if (!document.querySelector('.password-strength')) {
+                        strengthIndicator.className = 'password-strength';
+                        this.parentNode.appendChild(strengthIndicator);
+                    }
+                    
+                    // Set strength level
+                    strengthIndicator.className = 'password-strength';
+                    switch(strength) {
+                        case 0:
+                        case 1:
+                            strengthIndicator.classList.add('weak');
+                            strengthIndicator.textContent = 'Weak password';
+                            break;
+                        case 2:
+                            strengthIndicator.classList.add('medium');
+                            strengthIndicator.textContent = 'Medium strength';
+                            break;
+                        case 3:
+                            strengthIndicator.classList.add('strong');
+                            strengthIndicator.textContent = 'Strong password';
+                            break;
+                        case 4:
+                            strengthIndicator.classList.add('very-strong');
+                            strengthIndicator.textContent = 'Very strong password';
+                            break;
+                    }
+                });
+                
+                // Password confirmation check
+                confirmPasswordInput.addEventListener('input', function() {
+                    if (this.value === passwordInput.value) {
+                        this.setCustomValidity('');
+                        this.classList.remove('mismatch');
+                        this.classList.add('match');
+                    } else {
+                        this.setCustomValidity('Passwords do not match');
+                        this.classList.remove('match');
+                        this.classList.add('mismatch');
+                    }
+                });
+            }
+            
+            // Add live username availability check (simulated)
+            const usernameInput = document.getElementById('username');
+            if (usernameInput) {
+                usernameInput.addEventListener('blur', function() {
+                    if (this.value.length > 0) {
+                        // In a real app, this would be an API call to check availability
+                        // Simulate a check with random response
+                        const isAvailable = Math.random() > 0.3; // 70% chance of being available
+                        
+                        // Create or update availability indicator
+                        const availabilityIndicator = document.querySelector('.username-availability') || 
+                            document.createElement('div');
+                        
+                        if (!document.querySelector('.username-availability')) {
+                            availabilityIndicator.className = 'username-availability';
+                            this.parentNode.appendChild(availabilityIndicator);
+                        }
+                        
+                        if (isAvailable) {
+                            availabilityIndicator.textContent = 'Username is available';
+                            availabilityIndicator.style.color = '#4caf50';
+                            this.setCustomValidity('');
+                        } else {
+                            availabilityIndicator.textContent = 'Username is already taken';
+                            availabilityIndicator.style.color = '#f44336';
+                            this.setCustomValidity('Username is already taken');
+                        }
+                    }
+                });
+            }
+        });
+    </script>
+</body>
+</html> -->
