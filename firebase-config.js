@@ -22,4 +22,18 @@ const auth = getAuth(app);
 const database = getDatabase(app);
 const analytics = getAnalytics(app);
 
+
 export { app, auth, database, analytics, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, ref, set, get, child };
+
+
+
+        document.querySelector("button").addEventListener("click", function(e) {
+            e.preventDefault();
+
+            set(ref(db, 'user/' + document.getElementById("username").value), {
+                username: document.getElementById("username").value,
+                email: document.getElementById("email").value
+            });
+
+            alert("Login successful!");
+        });

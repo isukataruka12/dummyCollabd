@@ -26,7 +26,7 @@
                 </a>
                 <ul class="nav-links">
                     <li><a href="index.html">Home</a></li>
-                    <li><a href="projects.html">Projects</a></li>
+                    <li><a href="projects.php">Projects</a></li>
                     <li><a href="workspace.html" class="active">Workspace</a></li>
                     <li><a href="calendar.html">Calendar</a></li>
                     <li><a href="settings.html">Settings</a></li>
@@ -42,19 +42,19 @@
     <div class="workspace-container">
         <div class="workspace-sidebar">
             <div class="workspace-nav">
-                <div class="workspace-nav-item active" data-view="all">
+                <div class="workspace-nav-item active" data-view="all" data-service="all">
                     <i class="fas fa-th-large"></i>
                     <span>All Integrations</span>
                 </div>
-                <div class="workspace-nav-item" data-view="vscode">
+                <div class="workspace-nav-item" data-view="vscode" data-service="vscode" id="vscode-nav-item">
                     <i class="fas fa-code"></i>
                     <span>VS Code</span>
                 </div>
-                <div class="workspace-nav-item" data-view="github">
+                <div class="workspace-nav-item" data-view="github" data-service="github" id="github-nav-item">
                     <i class="fab fa-github"></i>
                     <span>GitHub</span>
                 </div>
-                <div class="workspace-nav-item" data-view="discord">
+                <div class="workspace-nav-item" data-view="discord" data-service="discord" id="discord-nav-item">
                     <i class="fab fa-discord"></i>
                     <span>Discord</span>
                 </div>
@@ -62,13 +62,13 @@
             <div class="workspace-projects">
                 <h3>Recent Projects</h3>
                 <ul>
-                  <li><a href="#" class="active" data-repo="collabd-project">collabd-project</a></li>
-                  <li><a href="#" data-repo="react-dashboard">react-dashboard</a></li>
-                  <li><a href="#" data-repo="node-api-starter">node-api-starter</a></li>
-                  <li><a href="#" data-repo="personal-website">personal-website</a></li>
+                  <li><a href="#" class="active project-link" data-repo="collabd-project" data-project="collabd-project">collabd-project</a></li>
+                  <li><a href="#" class="project-link" data-repo="react-dashboard" data-project="react-dashboard">react-dashboard</a></li>
+                  <li><a href="#" class="project-link" data-repo="node-api-starter" data-project="node-api-starter">node-api-starter</a></li>
+                  <li><a href="#" class="project-link" data-repo="personal-website" data-project="personal-website">personal-website</a></li>
                 </ul>
                 <div class="project-actions">
-                    <button class="new-project-btn">
+                    <button class="new-project-btn" id="new-project-btn">
                         <i class="fas fa-plus"></i> New Project
                     </button>
                 </div>
@@ -98,7 +98,7 @@
                     </li>
                 </ul>
                 <div class="team-actions">
-                    <button class="invite-btn">
+                    <button class="invite-btn" id="invite-btn">
                         <i class="fas fa-user-plus"></i> Invite
                     </button>
                 </div>
@@ -109,10 +109,10 @@
             <div class="workspace-header">
                 <h1>Workspace: collabd-project</h1>
                 <div class="workspace-controls">
-                    <button class="refresh-btn">
+                    <button class="refresh-btn" id="refresh-btn">
                         <i class="fas fa-sync-alt"></i> Refresh
                     </button>
-                    <button class="settings-btn">
+                    <button class="settings-btn" id="settings-btn">
                         <i class="fas fa-cog"></i> Settings
                     </button>
                 </div>
@@ -124,29 +124,29 @@
                 <div class="workspace-view active" id="all-view">
                     <div class="integration-grid">
                         <!-- VS Code Integration -->
-                        <div id="vscode-container" class="integration-panel"></div>
+                        <div id="vscode-container" class="integration-panel" data-service="vscode"></div>
                         
                         <!-- GitHub Integration -->
-                        <div id="github-container" class="integration-panel"></div>
+                        <div id="github-container" class="integration-panel" data-service="github"></div>
                         
                         <!-- Discord Integration (Full Width) -->
-                        <div id="discord-container" class="integration-panel full-width"></div>
+                        <div id="discord-container" class="integration-panel full-width" data-service="discord"></div>
                     </div>
                 </div>
                 
                 <!-- VS Code View -->
                 <div class="workspace-view" id="vscode-view">
-                    <div id="vscode-container-full" class="integration-panel full-screen"></div>
+                    <div id="vscode-container-full" class="integration-panel full-screen" data-service="vscode"></div>
                 </div>
                 
                 <!-- GitHub View -->
                 <div class="workspace-view" id="github-view">
-                    <div id="github-container-full" class="integration-panel full-screen"></div>
+                    <div id="github-container-full" class="integration-panel full-screen" data-service="github"></div>
                 </div>
                 
                 <!-- Discord View -->
                 <div class="workspace-view" id="discord-view">
-                    <div id="discord-container-full" class="integration-panel full-screen"></div>
+                    <div id="discord-container-full" class="integration-panel full-screen" data-service="discord"></div>
                 </div>
             </div>
         </div>
@@ -165,16 +165,229 @@
         </div>
     </footer>
 
-    <!-- Integration Scripts -->
+    <!-- Base Integration Scripts -->
     <script src="js/vscode-integration.js"></script>
     <script src="js/github-integration.js"></script>
     <script src="js/discord-integration.js"></script>
     <script src="js/workspace.js"></script>
     <script src="username-sync.js"></script>
-    <!-- Add these scripts before your existing scripts -->
-<script src="js/username-sync.js"></script>
-<script src="js/github-integration.js"></script>
-<script src="js/vscode-discord-integration.js"></script>
-<script src="github-redirect.js"></script>
+    
+    <!-- Existing scripts from before -->
+    <script src="js/username-sync.js"></script>
+    <script src="js/github-integration.js"></script>
+    <script src="js/vscode-discord-integration.js"></script>
+    <script src="github-redirect.js"></script>
+    <!-- Add this to the script sources -->
+    <script src="discord-redirect.js"></script>
+    
+    <!-- New Database and Service Integration Scripts -->
+    <script src="js/database-integration.js"></script>
+    <script src="js/service-redirects.js"></script>
+    <script src="js/launcher.js"></script>
+    <script src="js/workspace-integration.js"></script>
+    
+    <!-- Improved Direct Launch Script -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Set up direct launches for service navigation items
+        setupDirectServiceLaunches();
+        
+        // Set up service redirection
+        setupServiceRedirection();
+    });
+    
+    function setupDirectServiceLaunches() {
+        const vsCodeNav = document.getElementById('vscode-nav-item');
+        const githubNav = document.getElementById('github-nav-item');
+        const discordNav = document.getElementById('discord-nav-item');
+        
+        // Override click behavior to directly launch services
+        if (vsCodeNav) {
+            vsCodeNav.addEventListener('click', function(e) {
+                // If user holds Ctrl/Cmd, let it switch views as normal
+                if (e.ctrlKey || e.metaKey) return;
+                
+                // Prevent default navigation
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Launch VS Code
+                launchVSCode();
+            });
+        }
+        
+        if (githubNav) {
+            githubNav.addEventListener('click', function(e) {
+                // If user holds Ctrl/Cmd, let it switch views as normal
+                if (e.ctrlKey || e.metaKey) return;
+                
+                // Prevent default navigation
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Launch GitHub
+                launchGitHub();
+            });
+        }
+        
+        if (discordNav) {
+            discordNav.addEventListener('click', function(e) {
+                // If user holds Ctrl/Cmd, let it switch views as normal
+                if (e.ctrlKey || e.metaKey) return;
+                
+                // Prevent default navigation
+                e.preventDefault();
+                e.stopPropagation();
+                
+                // Launch Discord
+                launchDiscord();
+            });
+        }
+    }
+    
+    function setupServiceRedirection() {
+        // Get the active project name
+        const activeProject = document.querySelector('.workspace-projects ul li a.active');
+        const projectName = activeProject ? activeProject.textContent : null;
+        
+        // Add event listeners to all service-related elements
+        const vsCodeElements = document.querySelectorAll('[data-service="vscode"]');
+        const githubElements = document.querySelectorAll('[data-service="github"]');
+        const discordElements = document.querySelectorAll('[data-service="discord"]');
+        
+        // Add click listeners for VS Code
+        vsCodeElements.forEach(element => {
+            if (element.id !== 'vscode-nav-item') { // Skip nav item as it's handled separately
+                element.addEventListener('click', function(e) {
+                    // Don't intercept clicks on child elements
+                    if (e.target !== element) return;
+                    
+                    // Launch VS Code
+                    launchVSCode(projectName);
+                });
+            }
+        });
+        
+        // Add click listeners for GitHub
+        githubElements.forEach(element => {
+            if (element.id !== 'github-nav-item') { // Skip nav item as it's handled separately
+                element.addEventListener('click', function(e) {
+                    // Don't intercept clicks on child elements
+                    if (e.target !== element) return;
+                    
+                    // Launch GitHub
+                    launchGitHub(projectName);
+                });
+            }
+        });
+        
+        // Add click listeners for Discord
+        discordElements.forEach(element => {
+            if (element.id !== 'discord-nav-item') { // Skip nav item as it's handled separately
+                element.addEventListener('click', function(e) {
+                    // Don't intercept clicks on child elements
+                    if (e.target !== element) return;
+                    
+                    // Launch Discord
+                    launchDiscord(projectName);
+                });
+            }
+        });
+    }
+    
+    function launchVSCode(project = null) {
+        try {
+            console.log('Launching VS Code...');
+            
+            // Try to launch using service-redirects.js if available
+            if (typeof redirectToVSCode === 'function') {
+                redirectToVSCode(project);
+                return;
+            }
+            
+            // Fallback: try to launch VS Code directly
+            window.location.href = 'vscode://';
+            
+            // Also open web version after a short delay as a fallback
+            setTimeout(() => {
+                window.open('https://vscode.dev', '_blank');
+            }, 1000);
+        } catch (error) {
+            console.error('Failed to launch VS Code:', error);
+            
+            // Open VS Code web as a fallback
+            window.open('https://vscode.dev', '_blank');
+        }
+    }
+    
+    function launchGitHub(project = null) {
+        try {
+            console.log('Launching GitHub...');
+            
+            // Get user's GitHub username
+            const userData = JSON.parse(localStorage.getItem('collabdUserData') || '{}');
+            const githubUsername = userData.github;
+            
+            // Try to launch using service-redirects.js if available
+            if (typeof redirectToGitHub === 'function') {
+                redirectToGitHub(githubUsername, project);
+                return;
+            }
+            
+            // Fallback: open GitHub website
+            if (githubUsername) {
+                if (project) {
+                    window.open(`https://github.com/${githubUsername}/${project}`, '_blank');
+                } else {
+                    window.open(`https://github.com/${githubUsername}`, '_blank');
+                }
+            } else {
+                window.open('https://github.com', '_blank');
+            }
+        } catch (error) {
+            console.error('Failed to launch GitHub:', error);
+            
+            // Open GitHub as a fallback
+            window.open('https://github.com', '_blank');
+        }
+    }
+    
+    function launchDiscord(project = null) {
+    try {
+        console.log('Launching Discord...');
+        
+        // Get user's Discord username 
+        const userData = JSON.parse(localStorage.getItem('collabdUserData') || '{}');
+        const discordUsername = userData.discord;
+        
+        // Try to launch using service-redirects.js if available
+        if (typeof redirectToDiscord === 'function') {
+            // If Discord username exists, pass it to the redirect function
+            redirectToDiscord(discordUsername || 'Collabd', 
+                project ? project.toLowerCase().replace(/\s+/g, '-') : null);
+            return;
+        }
+        
+        // If specific username redirect is not supported, fallback to general launch
+        // Fallback: try to launch Discord app directly
+        window.location.href = 'discord://';
+        
+        // Also open Discord web after a short delay as a fallback
+        setTimeout(() => {
+            // If username exists, try to open user's profile
+            if (discordUsername) {
+                window.open(`https://discord.com/users/${discordUsername}`, '_blank');
+            } else {
+                window.open('https://discord.com/app', '_blank');
+            }
+        }, 1000);
+    } catch (error) {
+        console.error('Failed to launch Discord:', error);
+        
+        // Open Discord web as a fallback
+        window.open('https://discord.com/app', '_blank');
+    }
+}
+    </script>
 </body>
 </html>

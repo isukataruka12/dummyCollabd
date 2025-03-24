@@ -134,5 +134,49 @@
     <script src="main.js"></script>
     <script src="login.js"></script>
     <script src="username-sync.js"></script>
+
+    
+    <script type="module">
+        // Import the functions you need from the SDKs you need
+     import { initializeApp } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-app.js";
+     import { getDatabase, ref, set, get, child } from "https://www.gstatic.com/firebasejs/9.19.1/firebase-database.js";
+
+// Your web app's Firebase configuration
+     const firebaseConfig = {
+        apiKey: "AIzaSyAmO2yXvIwHq8nP78qKr_aO8A92I-orIVo",
+        authDomain: "collabd-ce35e.firebaseapp.com",
+        databaseURL: "https://collabd-ce35e-default-rtdb.firebaseio.com",
+        projectId: "collabd-ce35e",
+        storageBucket: "collabd-ce35e.firebasestorage.app",
+        messagingSenderId: "680036639038",
+        appId: "1:680036639038:web:b71c426fc93b4deb58cc6f",
+        measurementId: "G-JH71SGEE29"
+     };
+
+// Initialize Firebase
+     const app = initializeApp(firebaseConfig);
+
+//get ref to database services
+      const db = getDatabase(app);
+
+      document.getElementById("submit").addEventListener('click', function(e){
+       e.preventDefault();
+       set(ref(db, 'user/' + document.getElementById("username").value),
+       {
+
+         username: document.getElementById("username").value,
+         email: document.getElementById("email").value,
+         PhoneNumber: document.getElementById("phone").value
+
+       });
+         alert("Login Sucessfull  !");
+      })
+ </script>
+
+
+
+
+
+
 </body>
 </html>
